@@ -44,16 +44,7 @@
             <div class="col-md-3 col-lg-3 col-xl-6 col-6 offset-md-2 offset-xl-0">
                <span>O-Levels: </span>
                 <div class='ml-3 btn btn-primary nav-item dropdown'>
-                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;">
-                   <?php
-                    if (isset($_SESSION['level'])){
-                        echo "<span style='font-size:14px;'>Form ".$_SESSION['level']."</span>";
-                    }else {
-                        echo "<span style='font-size:14px;'>Select One</span>";
-                    }     
-                       
-                       ?>
-                    </a>
+                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;"><span style="font-size:14px;">Select One</span></a>
                     <div class='dropdown-menu' role='menu'>
                     <a class='dropdown-item' role='presentation' href='?1'>Form 1</a>
                     <a class='dropdown-item' role='presentation' href='?2'>Form 2</a>
@@ -65,10 +56,7 @@
             <div class="col-md-3 col-lg-7 col-xl-6 col-6 offset-md-2 offset-xl-0"> </div>
             
 <?php
-//    if (($dot_len > 1) && ($dot_len2 == 1)) {  //Form x has been selected for viewing
-    if ($dot_len > 1){
-        
-        if($dot_len2 == 1) {  //Form x has been selected for viewing
+    if (($dot_len > 1) && ($dot_len2 == 1)) {  //Form x has been selected for viewing
         $selected_number = $dot[1];
         $_SESSION['level'] = $selected_number;
 //        echo $selected_number;
@@ -94,7 +82,6 @@
                 </div>
         </div>
         "; 
-    }
     }
       
        

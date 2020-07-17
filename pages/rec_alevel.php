@@ -9,7 +9,6 @@
     $dot2 = explode ('.php?s', $urlComponents[3]);
     $dot_len = count($dot);
     $dot_len2 = count($dot2); //$dot2 = 1 for form, 2 for subj
-//    echo $dot_len2;
 //    echo $dot[1];
 //    echo $dot_len;
 //    print_r ($dot);
@@ -19,6 +18,7 @@
 //    }
 
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -42,33 +42,20 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xl-6 col-6 offset-md-2 offset-xl-0">
-               <span>O-Levels: </span>
+               <span>A-Levels: </span>
                 <div class='ml-3 btn btn-primary nav-item dropdown'>
-                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;">
-                   <?php
-                    if (isset($_SESSION['level'])){
-                        echo "<span style='font-size:14px;'>Form ".$_SESSION['level']."</span>";
-                    }else {
-                        echo "<span style='font-size:14px;'>Select One</span>";
-                    }     
-                       
-                       ?>
-                    </a>
+                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;"><span style="font-size:14px;">Select One</span></a>
                     <div class='dropdown-menu' role='menu'>
-                    <a class='dropdown-item' role='presentation' href='?1'>Form 1</a>
-                    <a class='dropdown-item' role='presentation' href='?2'>Form 2</a>
-                    <a class='dropdown-item' role='presentation' href='?3'>Form 3</a>
-                    <a class='dropdown-item' role='presentation' href='?4'>Form 4</a>
+                    <a class='dropdown-item' role='presentation' href='?5'>Form 5</a>
+                    <a class='dropdown-item' role='presentation' href='?6'>Form 6</a>
+
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-lg-7 col-xl-6 col-6 offset-md-2 offset-xl-0"> </div>
             
 <?php
-//    if (($dot_len > 1) && ($dot_len2 == 1)) {  //Form x has been selected for viewing
-    if ($dot_len > 1){
-        
-        if($dot_len2 == 1) {  //Form x has been selected for viewing
+    if (($dot_len > 1) && ($dot_len2 == 1)) {  //Form x has been selected for viewing
         $selected_number = $dot[1];
         $_SESSION['level'] = $selected_number;
 //        echo $selected_number;
@@ -94,7 +81,6 @@
                 </div>
         </div>
         "; 
-    }
     }
       
        
@@ -150,8 +136,6 @@
 -->
         </div>
     </div>
-    
-    
     
     </div>
     

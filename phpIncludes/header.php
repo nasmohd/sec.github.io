@@ -24,23 +24,19 @@
                                                     <a class='dropdown-item' role='presentation' href='olevel.php'>O Level</a>
                                                     <a class='dropdown-item' role='presentation' href='alevel.php'>A Level</a>
                                                 </div>
-                                                
-<!--
-                                                <div class='dropdown-menu' role='menu'>
-                                                    <div class='nav-item dropdown text-center'><a class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' href='#'>O Level</a>
-                                                        <div class='dropdown-menu dropdown-menu-right' role='menu'><a class='dropdown-item' role='presentation' href='#'>Form 1</a><a class='dropdown-item' role='presentation' href='#'>Form 2</a><a class='dropdown-item' role='presentation' href='#'>Form 3</a>
-                                                            <a class='dropdown-item' role='presentation' href='#'>Form 4</a>
-                                                        </div>
-                                                    </div>
-                                                    <div class='dropdown-divider' role='presentation'></div>
-                                                    <div class='nav-item dropdown text-center'><a class='dropdown-toggle' data-toggle='dropdown' aria-expanded='false' href='#'>A Level</a>
-                                                        <div class='dropdown-menu dropdown-menu-right' role='menu'><a class='dropdown-item' role='presentation' href='#'>Form 5</a><a class='dropdown-item' role='presentation' href='#'>Form 6</a></div>
-                                                    </div>
-                                                </div>
--->
+
                                             </div>
                                         </li>
-                                        <li class='nav-item' role='presentation'><a class='nav-link active ml-lg-4' id='head_txt' href='../pages/Recommended_Books.php'>Recommended books</a></li>
+                                        <li class='nav-item' role='presentation' id='head_txt'>
+<!--                                        <a class='nav-link active ml-lg-4' id='head_txt' href='../pages/Recommended_Books.php'>Recommended books</a>-->
+                                       <div class='nav-item dropdown mt-2 ml-lg-5'><a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='../pages/Syllabus.php' style='color:black;'>Recommended books</a>
+                                                <div class='dropdown-menu' role='menu'>
+                                                    <a class='dropdown-item' role='presentation' href='rec_olevel.php'>O Level</a>
+                                                    <a class='dropdown-item' role='presentation' href='rec_alevel.php'>A Level</a>
+                                                </div>
+                                       
+                                        </div>
+                                        </li>
                                         <li class='nav-item' role='presentation'><a class='nav-link active ml-lg-4' id='head_txt' href='../pages/Time_Tracker.php'>Time Tracker</a></li>
                                         <li class='nav-item' role='presentation'><a class='nav-link active ml-lg-4' id='head_txt' href='../pages/Career_Guidance.php'>Career Guidance</a></li>
                                         <li class='nav-item' role='presentation'><a class='nav-link active ml-lg-4' id='head_txt' href='../pages/Timetable_Templates.php'>Timetable Templates</a></li>

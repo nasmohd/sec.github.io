@@ -40,7 +40,9 @@
             <div class="container-fluid text-light" style="background-color:#0C7FCF;">
                 <div class="row">
                     <div class="col-md-8 col-xl-12 offset-md-2 offset-xl-0" style="width: 100%; background-color:#0C7FCF;">
-                        <h1 class="text-center my-4" style="font-size: 30px;">Secondary School Syllabus Guider</h1>
+<!--                        <h1 class="text-center my-4" style="font-size: 30px;">Secondary School Syllabus Guider</h1>-->
+                        <h1 class="text-center my-4" style="font-size: 30px;">Syllabus Management and Revision Tracking System</h1>
+                        
                     </div>
                 </div>
             </div>
@@ -58,12 +60,12 @@
                     <div class="col-12 col-lg-4 ml-auto mr-auto pb-5" style="border:2px solid #449EFF; border-bottom-left-radius:10px; border-bottom-right-radius:10px;">
                         <div class="col-lg-11 col-12 ml-auto mr-auto pb-2">              
                            <input type="text" id="regNo" class="col-12 mt-5 ml-auto mr-auto form-control" placeholder="Username" name="Username" value="fmaiga">
-                           <input type="text" id="pwd" class="col-12 mt-2 ml-auto mr-auto form-control" placeholder="Password" name="pwd" value="fmaiga">
+                           <input type="password" id="pwd" class="col-12 mt-2 ml-auto mr-auto form-control" placeholder="Password" name="pwd" value="fmaiga">
                             <button
                                 class="btn btn-primary col-12 ml-auto mr-auto mt-3 mb-3 form-control" type="submit" name="submit_btn">Log in</button>
                                 <p style="color:red; " id="wrong_password">
 <!--                                <span style="font-size:13px;">Incorrect Username or Password </span></p>-->
-                                <a class="float-right" href="#" style="font-size: 14px;">Register (New User)</a>
+                                <a class="float-right" href="reg.php" style="font-size: 14px;">Register (New User)</a>
                                 <div class="float-right"></div>
                         </div>
                     </div>
@@ -100,7 +102,7 @@
     
     <div class="footer-basic text-center" style="background-color:#0C7FCF;" id="footer">
         <div>
-            <p class="copyright mt-4" style="color:white; font-size:14px;">© 2020 - Secondary School Syllabus Guider</p>
+            <p class="copyright mt-4" style="color:white; font-size:14px;">© 2020 - Syllabus Management and Revision Tracking System</p>
         </div>
     </div>
     

@@ -6,16 +6,20 @@
     $urlComponents = explode ('/', $requestUrl);
 
     $dot = explode ('.php?', $urlComponents[3]); //$dot = Array ( [0] => index [1] => php?1 ), http://localhost/Sec/index.php?1
-    $dot2 = explode ('.php?s', $urlComponents[3]);
+    $dot2 = explode ('.php?sub', $urlComponents[3]);
     $dot_len = count($dot);
     $dot_len2 = count($dot2); //$dot2 = 1 for form, 2 for subj
 //    echo $dot[1];
 //    echo $dot_len;
 //    print_r ($dot);
 
-//    if ($dot_len > 1){  //Form x has been selected for viewing
-//        echo "True";
-//    }
+    if (($dot_len > 1) && ($dot_len2 < 2)){ //Only form has been selected;
+        $_SESSION ['form_selected'] = $dot[1];
+    }
+    
+    if (($dot_len > 1) && ($dot_len2 > 1)){ //Form & Subject have been selected
+        $_SESSION ['subj_selected'] = $dot2[1];
+    }
 
 ?>
 
@@ -42,98 +46,149 @@
     <div class="container mt-3">
         <div class="row">
             <div class="col-md-3 col-lg-3 col-xl-6 col-6 offset-md-2 offset-xl-0">
-               <span>A-Levels: </span>
+              <font color="#0C7FCF" style='font-size:16px; font-weight:500;'>Please make a selection</font>
+                <div style="color: #0C7FCF"><hr></div>
+               <span style="font-size:14px;">A-Levels: </span>
                 <div class='ml-3 btn btn-primary nav-item dropdown'>
-                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;"><span style="font-size:14px;">Select One</span></a>
+                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style="color:white;"><span style="font-size:14px;" id='form_text'>Select One</span></a>
                     <div class='dropdown-menu' role='menu'>
-                    <a class='dropdown-item' role='presentation' href='?5'>Form 5</a>
-                    <a class='dropdown-item' role='presentation' href='?6'>Form 6</a>
+                    <a class='dropdown-item' role='presentation' href='?5' onclick="form_selected('5')">Form 5</a>
+                    <a class='dropdown-item' role='presentation' href='?6' onclick="form_selected('6')">Form 6</a>
 
                     </div>
                 </div>
+                
+            <?php
+                if (($dot_len > 1) && ($dot_len2 < 2)){ //Only form has been selected;
+                    echo "
+                <font class='ml-lg-2' style='font-size:14px; font-weight:400; color: red;'>Select subject</font>
+                ";
+                }
+                
+                ?>
+                
+                
             </div>
             <div class="col-md-3 col-lg-7 col-xl-6 col-6 offset-md-2 offset-xl-0"> </div>
-            
-<?php
-    if (($dot_len > 1) && ($dot_len2 == 1)) {  //Form x has been selected for viewing
-        $selected_number = $dot[1];
-        $_SESSION['level'] = $selected_number;
-//        echo $selected_number;
-        
-        echo "
+
         <div class='col-md-3 col-lg-6 col-xl-6 col-12 offset-md-2 offset-xl-0 mt-1'>
-               <span>Subject: </span>
+               <span style="font-size:14px;">Subject: </span>
                 <div class='ml-4 btn btn-primary nav-item dropdown'>
-                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style='color:white;'><span style='font-size:14px;'>Select Subject</span></a>
+                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style='color:white;'><span style='font-size:14px;' id='subj_text'>Select Subject</span></a>
                     <div class='dropdown-menu' role='menu'>
-                    <a class='dropdown-item' role='presentation' href='?subj=1'>Mathematics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=2'>English</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=3'>Kiswahili</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=4'>Geography</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=5'>History</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=6'>Civics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=7'>Chemistry</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=8'>Physics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=9'>Biology</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=10'>Book Keeping</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=11'>Commerce</a>
+                    <a class='dropdown-item' role='presentation' href='?sub1' onclick="subj_selected('Mathematics')">Mathematics</a>
+                    <a class='dropdown-item' role='presentation' href='?sub2' onclick="subj_selected('English')">English</a>
+                    <a class='dropdown-item' role='presentation' href='?sub3' onclick="subj_selected('Kiswahili')">Kiswahili</a>
+                    <a class='dropdown-item' role='presentation' href='?sub4' onclick="subj_selected('Geography')">Geography</a>
+                    <a class='dropdown-item' role='presentation' href='?sub5' onclick="subj_selected('History')">History</a>
+                    <a class='dropdown-item' role='presentation' href='?sub6' onclick="subj_selected('Civics')">Civics</a>
+                    <a class='dropdown-item' role='presentation' href='?sub7' onclick="subj_selected('Chemistry')">Chemistry</a>
+                    <a class='dropdown-item' role='presentation' href='?sub8' onclick="subj_selected('Physics')">Physics</a>
+                    <a class='dropdown-item' role='presentation' href='?sub9' onclick="subj_selected('Biology')">Biology</a>
+                    <a class='dropdown-item' role='presentation' href='?sub10' onclick="subj_selected('Book Keeping')">Book Keeping</a>
+                    <a class='dropdown-item' role='presentation' href='?sub11' onclick="subj_selected('Commerce')">Commerce</a>
+                    <a class='dropdown-item' role='presentation' href='?sub12' onclick="subj_selected('General Studies')">General Studies</a>
                     </div>
                 </div>
         </div>
-        "; 
-    }
-      
-       
-    if (($dot_len > 1) && ($dot_len2 > 1)) { //subj has been selected
-        $get_subj = explode ('subj=', $dot[1]);
-        $count_subj = count($get_subj); //$count_subj = 1 if form selected, 2 if subj
         
-        //http://localhost/Sec/pages/olevel.php?subj=10
-        //http://localhost/Sec/pages/olevel.php?1
+<script>
+    window.onload = function(){
+        var sub = window.localStorage.getItem('subj');
+        var form_sel = window.localStorage.getItem('form');
         
-        if ($count_subj > 1){  
-            $selected_subj = $get_subj[1];
-            $_SESSION['subj'] = $selected_subj;
-            echo "
-        <div class='col-md-3 col-lg-6 col-xl-6 col-12 offset-md-2 offset-xl-0 mt-1'>
-               <span>Subject: </span>
-                <div class='ml-4 btn btn-primary nav-item dropdown'>
-                   <a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='#' style='color:white;'><span style='font-size:14px;'>Select Subject</span></a>
-                    <div class='dropdown-menu' role='menu'>
-                    <a class='dropdown-item' role='presentation' href='?subj=1'>Mathematics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=2'>English</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=3'>Kiswahili</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=4'>Geography</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=5'>History</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=6'>Civics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=7'>Chemistry</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=8'>Physics</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=9'>Biology</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=10'>Book Keeping</a>
-                    <a class='dropdown-item' role='presentation' href='?subj=11'>Commerce</a>
-                    </div>
-                </div>
-        </div>
-        "; 
+        if (sub == null){
+            subj_selected('Select Subject');
+        }else {
+            subj_selected(sub);
+        }
+        
+        if (form_sel == null){
+            form_selected('Select One');
+        }else{
+            form_selected(form_sel);
         }
     }
-        //$_SESSION['level'];
-        //$_SESSION['subj'];
+    
+    function subj_selected(x){
+        window.localStorage.setItem ('subj', x);
+        var txt = document.getElementById("subj_text");
+        txt.innerHTML = x;
+//        alert (window.localStorage.getItem('subj'));
+    }
+    
+    function form_selected(y){
+        window.localStorage.setItem ('form', y);
+        var txt2 = document.getElementById("form_text");
+//        txt2.innerHTML = "Form " + y;
+        if (y == 'Select One'){
+            txt2.innerHTML = y;
+        }else {
+            txt2.innerHTML = "Form " + y;
+        }
+    }     
+</script>
+       
+<?php
+    if (($dot_len > 1) && ($dot_len2 > 1)){
+        $selected_form = $_SESSION ['form_selected'];
+        $selected_subject = $_SESSION ['subj_selected'];
+        
+//        echo $selected_subject;
+        
+        echo "<hr>
+        <div class='col-lg-11 ml-auto mr-auto mt-lg-3'>
+                <div class='table-responsive' style='border: 1px solid #0C7FCF;'>
+                        <table class='table table-striped' style='font-size: 14px;'>
+                            <thead>
+                                <tr style='background-color: #0C7FCF; color:white;'>
+                                    <th style='width: 20%'>Chapter</th>
+                                    <th style='width: 40%'>Topic</th>
+                                    <th style='width: 40%'>Sub-topics</th>
+                                </tr>
+                            </thead>
+                
+            
+        ";
+        
+        //include
+        
+        if (($selected_form == '5') && ($selected_subject == '12')){
+            include 'syllabus/form5_GS.php';
+            
+        }
+        
+        if (($selected_form == '6') && ($selected_subject == '12')){
+            include 'syllabus/form5_GS.php';
+            
+        }
+        
+        if (($selected_form == '5') && ($selected_subject == '3')){
+            include 'syllabus/form5_Kisw.php';
+            
+        }
+        
+        if (($selected_form == '6') && ($selected_subject == '3')){
+            include 'syllabus/form6_Kisw.php';
+            
+        }
+        
+        echo "</table></div>
+    </div>"; 
 
-
+    }
+    
+//    echo "
+//        <script>
+//            function form_selected(y){
+//                var txt2 = document.getElementById(\"form_text\");
+//                txt2.innerHTML = \"Form \" + y;
+//            }
+//        </script>
+//    ";
 ?>
-<!--
-            <div class="col-md-3 col-lg-3 mr-lg-auto mr-md-auto col-xl-6 col-6 offset-md-2 offset-xl-0">
-                <div class='btn btn-primary nav-item dropdown mt-2'><a class='dropdown-toggle active' data-toggle='dropdown' aria-expanded='false' href='../pages/Syllabus.php' style="color:white;">Select Subject</a>
-                    <div class='dropdown-menu' role='menu'>
-                    <a class='dropdown-item' role='presentation' href='#'>Form 1</a>
-                    <a class='dropdown-item' role='presentation' href='#'>Form 2</a>
-                    <a class='dropdown-item' role='presentation' href='#'>Form 3</a>
-                    <a class='dropdown-item' role='presentation' href='#'>Form 4</a>
-                    </div>
-                </div>
-            </div>
--->
+        
+
         </div>
     </div>
     
@@ -154,7 +209,7 @@
         }
         
         #content-wrap{
-            padding-bottom: 2.5rem; /* Footer height */
+            padding-bottom: 8rem; /* Footer height */
         }
         
         #footer{

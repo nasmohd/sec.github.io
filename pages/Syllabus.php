@@ -20,11 +20,10 @@
     
     </div>
     
-    <div class="footer-basic text-center" style="background-color: #0C7FCF;" id="footer">
-        <div>
-            <p class="copyright mt-4" style="color:white; font-size:14px;">© 2020 - Secondary School Syllabus Guider</p>
-        </div>
-    </div>
+    <?php
+    include '../phpIncludes/footer.php';       
+       
+?>
     
     </div>
     
@@ -35,7 +34,7 @@
         }
         
         #content-wrap{
-            padding-bottom: 2.5rem; /* Footer height */
+            padding-bottom: 8rem; /* Footer height */
         }
         
         #footer{
